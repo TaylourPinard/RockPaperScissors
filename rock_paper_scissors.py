@@ -3,7 +3,7 @@ import random
 playing = True
 options = ['rock', 'paper', 'scissors']
 
-
+# who's ready for another round
 def play_again(playing):
     while playing:
         print("Play again? Y or N")
@@ -16,7 +16,7 @@ def play_again(playing):
             print("Please only type Y or N")
     return playing
 
-
+# Helper function to print out the result of the game
 def Winner(winner, player_play, comp_play):
     if winner == "It's a tie!":
         print("Player chooses: " + player_play +
@@ -25,17 +25,17 @@ def Winner(winner, player_play, comp_play):
         print("Player chooses: " + player_play +
           " Computer chooses: " + comp_play + " " + winner + " wins!")
 
-
+# Game loop
 while playing:
     comp_choice = random.randint(0, 2)
     comp_play = options[comp_choice]
 
+    # serialize user input with try except block
     try:
         print("Please choose a guess; rock, paper, or scissors all lowercase")
         print("The computer will choose randomly, it will not cheat")
         player_play = input()
 
-        # todo: convert this to a switch statement its cleaner
         if player_play == comp_play:
             winner = "It's a tie!"
             Winner(winner, player_play, comp_play)
