@@ -34,34 +34,19 @@ while playing:
     print("The computer will choose randomly, it will not cheat")
     player_play = input()
 
-    if player_play == comp_play:
-        winner = "It's a tie!"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    elif player_play == "rock" and comp_play == "paper":
-        winner = "computer"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    elif player_play == "rock" and comp_play == "scissors":
-        winner = "player"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    elif player_play == "paper" and comp_play == "scissors":
-        winner = "computer"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    elif player_play == "paper" and comp_play == "rock":
-        winner = "player"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    elif player_play == "scissors" and comp_play == "rock":
-        winner = "computer"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    elif player_play == "scissors" and comp_play == "paper":
-        winner = "player"
-        Winner(winner, player_play, comp_play)
-        playing = play_again(playing)
-    else:
-        print("Please only type rock, paper, or scissors in all lowercase")
-        continue
+    match player_play:
+        case "rock" :
+            if comp_play == "rock": winner = "It's a Tie!"
+            elif comp_play == "paper": winner = "computer"
+            else: winner = "player"
+        case "paper":
+            if comp_play == "paper": winner = "It's a Tie!"
+            elif comp_play == "scissors": winner = "computer"
+            else: winner = "player"
+        case "scissors":
+            if comp_play == "scissors": winner = "It's a Tie!"
+            elif comp_play == "paper": winner = "computer"
+            else: winner = "player"
+        case default:
+                print("Please only type rock, paper, or scissors in all lowercase")
+                continue
